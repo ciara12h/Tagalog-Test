@@ -1,0 +1,72 @@
+﻿@page "{SelectedList?}/{DifficultyLevel?}/"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center" style="font-size: 18pt;">
+        <h1 class="display-4" style="font-size: larger; font-weight: bold; color: chocolate;">Welcome To the Tagalog Trainer Web App</h1>
+        <form method="post">
+
+            @if (string.IsNullOrEmpty(Model.SelectedList))
+            {
+                <label asp-for="SelectedList">Select a list</label>
+                <select asp-for="SelectedList">
+                    <option value=""></option>
+                    @foreach (var item in Model.OurList.Keys.OrderBy(x => x))
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                <br />
+                <label asp-for="DifficultyLevel">Select Difficulty Level</label>
+                @foreach (var item in Enum.GetValues(typeof(DifficultyLevel)).OfType<DifficultyLevel>())
+                {
+                    <input id="@($"DL_{item.ToString()}")" type="radio" asp-for="DifficultyLevel" value="@item" />
+                    <label for="@($"DL_{item.ToString()}")">@item</label>
+                }
+                <br />
+                <button asp-page-handler="StartTest">Start Test</button>
+            }
+            else if (!Model.Questions.Any())
+            {
+                <div style="font-weight: bold; padding: 1em; color: green;">You have completed all the questions!</div>
+                <label asp-for="SelectedList">Select a list</label>
+                <select asp-for="SelectedList">
+                    <option value=""></option>
+                    @foreach (var item in Model.OurList.Keys.OrderBy(x => x))
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                <br />
+                <label asp-for="DifficultyLevel">Select Difficulty Level</label>
+                @foreach (var item in Enum.GetValues(typeof(DifficultyLevel)).OfType<DifficultyLevel>())
+                {
+                    <input id="@($"DL_{item.ToString()}")" type="radio" asp-for="DifficultyLevel" value="@item" />
+                    <label for="@($"DL_{item.ToString()}")">@item</label>
+                }
+                <br />
+                <button asp-page-handler="StartTest">Start Test</button>
+            }
+            else
+            {
+                @Html.HiddenFor(x => x.SessionData);
+                @if (!string.IsNullOrEmpty(Model.AnswerResponse))
+                {
+                    <strong>@Model.AnswerResponse</strong>
+                    <br /><br />
+                }
+                <label asp-for="QuestionAnswer">
+                    @(Model.DifficultyLevel == DifficultyLevel.Easy
+                           ? $"What is \"{Model.Questions.First().Tagalog}\" in English?"
+                           : $"What is {Model.Questions.First().English} in Tagalog?")
+                </label>
+                <input type="text" asp-for="QuestionAnswer" autocomplete="off"/>
+                <br />
+                <button asp-page-handler="Answer">Submit Answer</button>
+            }
+
+        </form>
+
+    </div>

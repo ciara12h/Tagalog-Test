@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagalogTest", "TagalogTest\TagalogTest.csproj", "{62D0CAC6-974C-4D20-8B28-C8439D3C1ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagalogWebTest", "TagalogWebTest\TagalogWebTest.csproj", "{A2AB93DC-4797-4AAF-88B6-89F7504AFC60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62D0CAC6-974C-4D20-8B28-C8439D3C1ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D0CAC6-974C-4D20-8B28-C8439D3C1ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D0CAC6-974C-4D20-8B28-C8439D3C1ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D0CAC6-974C-4D20-8B28-C8439D3C1ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2AB93DC-4797-4AAF-88B6-89F7504AFC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2AB93DC-4797-4AAF-88B6-89F7504AFC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2AB93DC-4797-4AAF-88B6-89F7504AFC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2AB93DC-4797-4AAF-88B6-89F7504AFC60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC2CE470-8047-4591-9369-F58CCB74C2D8}
+	EndGlobalSection
+EndGlobal
